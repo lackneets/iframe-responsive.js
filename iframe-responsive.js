@@ -24,7 +24,7 @@
       return undefined;
     };
   }
-  if(!CSSStyleDeclaration.prototype.getProperty){
+  if(!CSSStyleDeclaration.prototype.setProperty){
     CSSStyleDeclaration.prototype.getProperty = function(a) {
       return this.getAttribute(a);
     };
@@ -36,6 +36,13 @@
     }    
   }
 
+  function isJSON (str) {
+    try {
+      return JSON.parse(str) && true;
+    } catch (ex) {
+      return false;
+    }
+  }
 
   function toArray(obj) {
     var array = [];
@@ -65,10 +72,7 @@
     // Master
     attachEvent(window, 'message', onResized);
     function onResized(event){
-      var data;
-      try{
-        data = JSON.parse(event.data);
-      } catch(e){}
+      var data = isJSON(event.data) ? JSON.parse(event.data) : event.data;
       if(data.location){
         toArray(document.getElementsByTagName('iframe')).forEach(function(frame){
           if(data.location == frame.src){
