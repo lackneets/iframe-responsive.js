@@ -70,6 +70,9 @@
 
   onReady(function(){
     // Master
+
+    var resizedFrames = [];
+
     attachEvent(window, 'message', onResized);
     function onResized(event){
       var data = isJSON(event.data) ? JSON.parse(event.data) : event.data;
@@ -77,9 +80,22 @@
         toArray(document.getElementsByTagName('iframe')).forEach(function(frame){
           if(data.location == frame.src){
             frame.style.setProperty("height", data.height + "px", "important");
+            resizedFrames.push(frame);
           }
         });
       }
+    }
+
+    function tryShrink(){
+      var frame;
+      while(frame = resizedFrames.pop()){
+        frame.style.setProperty("height", parseInt(frame.style.height)-50 + "px", "important");
+      }
+    }
+
+    // Outer
+    if(window.parent == window){
+      attachEvent(window, 'resize', tryShrink);
     }
 
     // iFrame
