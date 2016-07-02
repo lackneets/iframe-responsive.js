@@ -1,7 +1,7 @@
 # iframe-responsive.js
 Resize iframe height automatically
 
-see [DEMO](http://lackneets.github.io/iframe-iframe-responsive.js/demo)
+see [DEMO](http://lackneets.github.io/iframe-responsive.js/demo)
 
 ### Dependency
 
