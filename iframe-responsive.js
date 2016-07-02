@@ -60,13 +60,7 @@
     }
   }
 
-  function onReady(func) {
-    if (document.readyState == 'complete') {
-      func();
-    } else {
-      attachEvent(window, 'load', func);
-    }
-  }
+  var onReady=function(d){"complete"==document.readyState?d():document.addEventListener?window.addEventListener("load",d,!1):window.attachEvent("onload",d)};
 
   onReady(function(){
     // Master
@@ -86,17 +80,17 @@
       }
     }
 
-    function tryShrink(){
-      var frame;
-      while(frame = resizedFrames.pop()){
-        frame.style.setProperty("height", parseInt(frame.style.height)-50 + "px", "important");
-      }
-    }
+    // function tryShrink(){
+    //   var frame;
+    //   while(frame = resizedFrames.pop()){
+    //     frame.style.setProperty("height", parseInt(frame.style.height)-50 + "px", "important");
+    //   }
+    // }
 
     // Outer
-    if(window.parent == window){
-      attachEvent(window, 'resize', tryShrink);
-    }
+    // if(window.parent == window){
+    //   attachEvent(window, 'resize', tryShrink);
+    // }
 
     // iFrame
     if(window.parent != window && window.parent.postMessage){

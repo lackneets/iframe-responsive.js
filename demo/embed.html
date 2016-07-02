@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Embed Responsive Page</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script src="../iframe-responsive.js"></script>
+
+  <style>
+    .example-block{
+      background-color: #8FBC8F;
+      color: white;
+      font-size: 40px;
+      padding: 1em;
+    }
+    @media only screen and (max-width: 767px) {
+      .example-block{
+        height: 800px;
+        background-color: #008B8B;
+      }
+    }
+    @media only screen and (min-width: 768px) {
+      .example-block{
+        height: 600px;
+      }
+    }
+  </style>
+
+
+</head>
+<body>
+
+  <div class="example-block">
+    iframe Content
+  </div>
+
+</body>
+</html>
