@@ -1,11 +1,7 @@
 /*
   iFrameResponsive.js
-  Requires: No
-
-  Author: Lackneets Chang < lackneets@gmail.com >
-  Gist: https://gist.github.com/lackneets/e945d328838b11eed250
+  by Lackneets Chang < lackneets@gmail.com >
 */
-
 (function(){
 
   // Polyfill 
